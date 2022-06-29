@@ -6,16 +6,16 @@
 
 class Ball : public Entity {
 public:
-    Ball(SDL_Window* argWindow, SDL_Renderer* argRenderer);
+    Ball(SDL_Window* argWindow, SDL_Renderer* argRenderer, Player* argPlayer);
     ~Ball();
     void Update();
     void Event();
-    void Render();
-    void CheckCollision();
+    void CheckWallCollision();
+    void CheckPlayerCollision();
+    bool botScores;
+    bool playerScores;
 private:
     Player* player;
-    int velocityX;
-    int velocityY;
     void Move();
 };
 

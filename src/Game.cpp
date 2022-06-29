@@ -16,8 +16,9 @@ Game::Game(){
         printf("Successfully created renderer");
     }
 
-    ball = new Ball(window, renderer);
     player = new Player(renderer);
+    ball = new Ball(window, renderer, player);
+    score = new Score(renderer, ball);
 }
 
 Game::~Game(){}
@@ -41,6 +42,7 @@ void Game::Render(){
     SDL_RenderClear(renderer);
     player->Render();
     ball->Render();
+    score->InitializeAndRenderFont();
     SDL_RenderPresent(renderer);
     SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
 }
@@ -52,6 +54,7 @@ bool Game::GetRunning(){
 void Game::Update(){
     // player->Update();
     ball->Update();
-    ball->CheckCollision();
-    player->CheckPlayerCollision();
+    ball->CheckWallCollision();
+    ball->CheckPlayerCollision();
+    player->LimitPlayerMovement();
 }

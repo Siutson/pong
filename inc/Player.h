@@ -7,10 +7,9 @@ class Player : public Entity{
 public:
     Player(SDL_Renderer* renderer);
     ~Player();
-    void Render();
     void Update();
     void Move();
-    void CheckPlayerCollision();
+    void LimitPlayerMovement();
 private:
     const Uint8* keystates = SDL_GetKeyboardState(NULL);
     SDL_Event e;

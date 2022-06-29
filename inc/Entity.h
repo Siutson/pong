@@ -5,10 +5,12 @@
 
 class Entity {
 public:
-    Entity();
+    Entity(SDL_Renderer* argRenderer);
     void Render();
     void Update();
     void Move();
+    int velX;
+    int velY;
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Rect rectEntity;
