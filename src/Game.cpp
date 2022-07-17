@@ -17,7 +17,8 @@ Game::Game(){
     }
 
     player = new Player(renderer);
-    ball = new Ball(window, renderer, player);
+    ball = new Ball(renderer, player);
+    bot = new Bot(renderer, ball);
     score = new Score(renderer, ball);
 }
 
@@ -30,16 +31,17 @@ void Game::Event(){
         {
             isRunning = false;
         }
-
     }
     player->Move();
     player->Update();
+    bot->MoveBot();
 
     // ball->Event();
 }
 
 void Game::Render(){
     SDL_RenderClear(renderer);
+    bot->Render();
     player->Render();
     ball->Render();
     score->InitializeAndRenderFont();
@@ -56,5 +58,7 @@ void Game::Update(){
     ball->Update();
     ball->CheckWallCollision();
     ball->CheckPlayerCollision();
+    bot->ResetBotPosition();
+    bot->BotCollision();
     player->LimitPlayerMovement();
 }

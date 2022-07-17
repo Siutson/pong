@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "Ball.h"
 #include "Player.h"
+#include "Bot.h"
 
 class Game {
 public:
@@ -16,6 +17,7 @@ public:
     bool GetRunning();
 private:
     bool isRunning;
+    Bot* bot;
     Ball* ball;
     Player* player;
     Score* score;

@@ -5,7 +5,7 @@ Player::Player(SDL_Renderer* argRenderer) : Entity(argRenderer){
     velX = 0;
     velY = 0;
     rectEntity.w = 10;
-    rectEntity.h = 80;
+    rectEntity.h = 90;
     rectEntity.x = 600;
     rectEntity.y = 160;
 

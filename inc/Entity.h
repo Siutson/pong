@@ -11,7 +11,6 @@ public:
     void Move();
     int velX;
     int velY;
-    SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Rect rectEntity;
     SDL_Rect rectWindow;

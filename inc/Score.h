@@ -12,18 +12,27 @@ public:
     Score(SDL_Renderer* argRenderer, Ball* argBall);
     ~Score();
     void InitializeAndRenderFont();
-    void FreeFontResources();
 private:
     SDL_Renderer* scoreRenderer;
-    const char* scoreKeeper;
-    Ball* ball;
-    int playerScoreInt;
+
+    SDL_Rect botScoreRect;
+    std::string botScore;
+    const char* botScoreKeeper;
+    int botScoreInt;
+
+    SDL_Rect playerScoreRect;
     std::string playerScore;
-    SDL_Rect textRectangle;
+    const char* playerScoreKeeper;
+    int playerScoreInt;
+
+    Ball* ball;
     TTF_Font* textFont;
     SDL_Color textColor;
-    SDL_Texture* textTexture;
-    SDL_Surface* textSurface;
+    SDL_Texture* botTextTexture;
+    SDL_Surface* botTextSurface;
+
+    SDL_Texture* playerTextTexture;
+    SDL_Surface* playerTextSurface;
 };
 
 

@@ -1,15 +1,12 @@
 #include "Ball.h"
 
-Ball::Ball(SDL_Window* argWindow, SDL_Renderer* argRenderer, Player* argPlayer) : Entity(argRenderer){
-    rectEntity.w = 20;
-    rectEntity.h = 20;
-    rectEntity.x = 40;
-    rectEntity.y = 240;
+Ball::Ball(SDL_Renderer* argRenderer, Player* argPlayer) : Entity(argRenderer){
+    rectEntity = {320,240,20,20};
     botScores = false;
     playerScores = false;
-    window = argWindow;
     renderer = argRenderer;
     player = argPlayer;
+    // bot = argBot;
 }
 
 void Ball::Update(){
@@ -30,16 +27,18 @@ void Ball::CheckWallCollision(){
 
     if (rectEntity.x + rectEntity.w >= rectWindow.w){ // kolizja z prawą ścianą
         botScores = true;
-        rectEntity = {40,240,20,20};
+        rectEntity = {320,240,20,20};
         player->rectEntity = {600,160,10,80};
+        // bot->rectEntity = {30,160,10,90};
         velX = 4;
         velY = 4;
         // velX = -velX;
     }
     if (rectEntity.x <= rectWindow.x){ // kolizja z lewą ścianą
         playerScores = true;
-        rectEntity = {40,240,20,20};
+        rectEntity = {320,240,20,20};
         player->rectEntity = {600,160,10,80};
+        // bot->rectEntity = {30,160,10,90};
         velX = 4;
         velY = 4;
         // velX = -velX;

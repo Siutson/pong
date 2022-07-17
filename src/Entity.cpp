@@ -2,6 +2,7 @@
 
 Entity::Entity(SDL_Renderer* argRenderer){
     renderer = argRenderer;
+    rectWindow = {0,0,640,480};
     velX = 4;
     velY = 4;
 }

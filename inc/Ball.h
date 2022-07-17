@@ -6,7 +6,7 @@
 
 class Ball : public Entity {
 public:
-    Ball(SDL_Window* argWindow, SDL_Renderer* argRenderer, Player* argPlayer);
+    Ball(SDL_Renderer* argRenderer, Player* argPlayer);
     ~Ball();
     void Update();
     void Event();
