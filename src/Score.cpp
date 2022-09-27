@@ -1,11 +1,12 @@
 #include "Score.h"
 
-Score::Score(SDL_Renderer* argRenderer, Ball* argBall){
+Score::Score(SDL_Renderer *argRenderer, Ball *argBall)
+{
     ball = argBall;
     scoreRenderer = argRenderer;
 
-    botScoreRect = {40,0,40,30};
-    playerScoreRect = {560,0,40,30};
+    botScoreRect = {40, 0, 40, 30};
+    playerScoreRect = {560, 0, 40, 30};
     botScoreInt = 0;
     botScore = std::to_string(botScoreInt);
 
@@ -13,19 +14,22 @@ Score::Score(SDL_Renderer* argRenderer, Ball* argBall){
     playerScore = std::to_string(playerScoreInt);
 
     TTF_Init();
-    textFont = TTF_OpenFont("../JtbMM.ttf", 25);
-
+    textFont = TTF_OpenFont("D:/dev/sdl_projects/pong/JtbMM.ttf", 25);
 }
 
-void Score::InitializeAndRenderFont(){
-    // if (!textFont) printf("problem loading font\n%s", TTF_GetError());
-    if (ball->botScores){
+void Score::InitializeAndRenderFont()
+{
+    if (!textFont)
+        printf("problem loading font\n%s", TTF_GetError());
+    if (ball->botScores)
+    {
         botScoreInt++;
         botScore = std::to_string(botScoreInt);
         ball->botScores = false;
     }
 
-    if (ball->playerScores){
+    if (ball->playerScores)
+    {
         playerScoreInt++;
         playerScore = std::to_string(playerScoreInt);
         ball->playerScores = false;

@@ -52,12 +52,12 @@ void Ball::CheckWallCollision(){
 }
 
 void Ball::CheckPlayerCollision(){
-    if (rectEntity.x + rectEntity.w >= player->rectEntity.x){
+    if (rectEntity.x + rectEntity.w >= player->rectEntity.x){ // brak wsparcia dla kolizji boków paletki gracza
         if (rectEntity.y <= player->rectEntity.y + player->rectEntity.h){ // sprawdzenie góry piłki z dołem paletki
 
             if (rectEntity.y + rectEntity.h >= player->rectEntity.y ){ //sprawdzenue dołu piłki z górą paletki
                 velX = -velX;
-                velY = (( (rectEntity.y + (rectEntity.h/2)) - (player->rectEntity.y+ (player->rectEntity.h/2)) ))/6;
+                velY = (( (rectEntity.y + (rectEntity.h/2)) - (player->rectEntity.y+ (player->rectEntity.h/2)) ))/8;
             }
         }
     }
